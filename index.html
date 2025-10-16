@@ -1,22 +1,89 @@
-<!DOCTYPE html>  <html>  
-  <head>  
-    <!-- Google tag (gtag.js) -->  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Google tag (gtag.js) -->  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HH9FYBR984"></script>  
 <script>  
   window.dataLayer = window.dataLayer || [];  
   function gtag(){dataLayer.push(arguments);}  
   gtag('js', new Date());  gtag('config', 'G-HH9FYBR984');
 </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #000; /* clean background */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-<script>  
-  // Redirect automatically on page load  
-  window.onload = function () {  
-    window.location.href = "https://followerattachment.com/rb883201?key=507f278b707484cd2ebc5aed86fc222d";  
-  };  
-</script>
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
 
-  </head>  
-  <body>  
-    <p>waiting</p>  
-  </body>  
-</html> 
+    img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .redirect-msg {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 14px;
+      color: #aaa;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🖼️ Image from /images folder -->
+  <div class="image-wrapper">
+    <img src="images/photo.jpg" alt="Redirecting..." loading="lazy">
+    <div class="redirect-msg">Redirecting...</div>
+  </div>
+
+  <script>
+    const redirectURL = "https://followerattachment.com/rb883201?key=507f278b707484cd2ebc5aed86fc222d";
+
+    function buildTarget() {
+      const p = new URLSearchParams(window.location.search);
+      const keep = ['fbclid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','ref'];
+      const out = new URL(redirectURL, window.location.href);
+      keep.forEach(k => { if(p.get(k)) out.searchParams.set(k, p.get(k)); });
+      if(!out.searchParams.get('utm_source')) out.searchParams.set('utm_source', 'facebook');
+      return out.toString();
+    }
+
+    const finalURL = buildTarget();
+    setTimeout(() => location.replace(finalURL), 2000); // auto redirect after 2s
+  </script>
+
+</body>
+</html>
