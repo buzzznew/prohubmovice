@@ -30,25 +30,28 @@
       position: relative;
       width: 100%;
       max-width: 420px;
-      aspect-ratio: 9 / 16;
-      overflow: hidden;
+      height: 90vh;
+      overflow-y: scroll; /* Manual scroll */
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      scrollbar-width: none; /* Hide scrollbar (Firefox) */
+      -ms-overflow-style: none; /* Hide scrollbar (IE) */
       cursor: pointer;
     }
 
+    .image-wrapper::-webkit-scrollbar {
+      display: none; /* Hide scrollbar (Chrome, Safari) */
+    }
+
     img {
-      position: absolute;
-      top: 0; left: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: block;
       opacity: 0;
       animation: fadeIn 1s forwards;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.05); }
+      from { opacity: 0; transform: scale(1.03); }
       to { opacity: 1; transform: scale(1); }
     }
 
@@ -62,6 +65,8 @@
       font-size: 14px;
       color: #aaa;
       opacity: 0.8;
+      background: rgba(0,0,0,0.4);
+      padding: 4px 0;
     }
   </style>
 </head>
@@ -69,7 +74,9 @@
 
   <div class="image-wrapper" id="clickableImage">
     <img src="images/photo.jpg" alt="Redirecting...">
-    <div class="redirect-msg">Redirecting in 5 seconds... or tap image</div>
+    <img src="images/photo2.jpg" alt="More content">
+    <img src="images/photo3.jpg" alt="More content">
+    <div class="redirect-msg">Scroll to view — Redirecting in 5s or tap image</div>
   </div>
 
   <script>
